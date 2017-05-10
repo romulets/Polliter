@@ -1,5 +1,6 @@
 from django.conf.urls import url
 from django.contrib.auth import views as auth_views
+import views
 
 urlpatterns = [
     url(r'^$', auth_views.login, {
@@ -9,5 +10,6 @@ urlpatterns = [
     url(r'^logout$', auth_views.logout, {
       'next_page': 'auth.login'
     }, name='auth.logout'),
-    # url(r'^register$', views.register, name='register'),
+
+    url(r'^register$', views.register, name='register'),
 ]
