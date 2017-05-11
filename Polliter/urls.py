@@ -15,9 +15,9 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
+from user import urls
 
 urlpatterns = [
-    url(r'^', include('auth.urls')),
-    url(r'^', include('users.urls')),
+    url(r'^', include(urls)),
     url(r'^polliter-admin/', admin.site.urls),
 ]

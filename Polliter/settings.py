@@ -34,6 +34,10 @@ LOGIN_URL = '/'
 LOGIN_REDIRECT_URL = '/home'
 
 INSTALLED_APPS = [
+    'user.apps.UserConfig',
+    'politician.apps.PoliticianConfig',
+    'theme.apps.ThemeConfig',
+    'topic.apps.TopicConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -58,8 +62,8 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            'auth',
-            'templates',    
+            './',
+            'templates',
         ],
         'APP_DIRS': True,
         'OPTIONS': {
