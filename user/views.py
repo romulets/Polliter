@@ -20,6 +20,6 @@ def register(request):
             return HttpResponseRedirect('home')
 
     form = RegisterForm
-    return render(request, 'templates/register.html', {
+    return render(request, 'user/templates/register.html', {
         'form': form
     })
