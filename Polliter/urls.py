@@ -19,5 +19,7 @@ from user import urls
 
 urlpatterns = [
     url(r'^', include(urls)),
+    url(r'^topics/', include('topic.urls')),
     url(r'^polliter-admin/', admin.site.urls),
+    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework'))
 ]

@@ -13,8 +13,8 @@ class Topic (models.Model):
     title = models.CharField(max_length=255, null=False)
     description = models.TextField(max_length=500, null=True)
     date = models.DateTimeField(null=False, auto_now_add=True)
-    reference = models.TextField(max_length=1000, null=True)
-    image = models.TextField(max_length=1000, null=True)
+    reference = models.URLField(max_length=1000, null=True)
+    image = models.URLField(max_length=1000, null=True)
     politicians = models.ManyToManyField(Politician)
     themes = models.ManyToManyField(Theme)
 
@@ -26,3 +26,9 @@ class Vote (models.Model):
     positive = models.BooleanField(null=False)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     topic = models.ForeignKey(Topic, on_delete=models.CASCADE)
+
+    def __str__(self):
+        if self.positive:
+            return '%d aprova "%d"' % (self.user.first_name, self.topic.title)
+        else:
+            return '%d não aprova "%d"' % (self.user.first_name, self.topic.title)
