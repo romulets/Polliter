@@ -20,8 +20,8 @@ from user import urls
 urlpatterns = [
     url(r'^', include(urls)),
     url(r'^topics/', include('topic.urls')),
-    url(r'^themes/', include('topic.urls')),
-    url(r'^politicians/', include('topic.urls')),
+    url(r'^themes/', include('theme.urls')),
+    url(r'^politicians/', include('politician.urls')),
     url(r'^polliter-admin/', admin.site.urls),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework'))
 ]

@@ -13,7 +13,7 @@ from topic.serializers import TopicSerializer
 @api_view(['GET'])
 @permission_classes([permissions.IsAuthenticated])
 def list_topics(request):
-    topics = Topic.objects.all()
+    topics = Topic.objects.all().order_by('-date')
     serializer = TopicSerializer(topics, many=True)
     return Response(serializer.data, status=status.HTTP_200_OK)
 
@@ -21,7 +21,12 @@ def list_topics(request):
 def vote(user, topic_id, positive):
     try:
         topic = Topic.objects.get(pk=topic_id)
-        vote, created = Vote.objects.get_or_create(topic=topic, user=user)
+
+        try:
+            vote = Vote.objects.get(topic=topic, user=user)
+        except Vote.DoesNotExist:
+            vote = Vote(topic=topic, user=user)
+
         vote.positive = positive
         vote.save()
         return Response({}, status=status.HTTP_200_OK)
