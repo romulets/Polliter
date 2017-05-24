@@ -33,11 +33,21 @@ ALLOWED_HOSTS = []
 LOGIN_URL = '/'
 LOGIN_REDIRECT_URL = '/home'
 
+REST_FRAMEWORK = {
+    # Use Django's standard `django.contrib.auth` permissions,
+    # or allow read-only access for unauthenticated users.
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated',
+        # 'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    ]
+}
+
 INSTALLED_APPS = [
     'user.apps.UserConfig',
     'politician.apps.PoliticianConfig',
     'theme.apps.ThemeConfig',
     'topic.apps.TopicConfig',
+    'rest_framework',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
