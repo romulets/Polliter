@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}Timeline{% endblock %}
+
+{% block content %}
+    <h1>Timeline</h1>
+
+    <section ng-app="Polliter" ng-controller="TopicsController">
+        <article ng-repeat="topic in topics">
+            <h3>[[ topic.title ]]</h3>
+            <p>[[ topic.description ]]</p>
+        </article>
+    </section>
+
+{% endblock %}

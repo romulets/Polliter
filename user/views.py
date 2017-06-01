@@ -6,6 +6,10 @@ from django.contrib.auth.models import User
 from forms.registerform import RegisterForm
 
 
+def home(request):
+    return render(request, 'user/templates/home.html')
+
+
 def register(request):
     if request.method == 'POST':
         form = RegisterForm(request.POST)
