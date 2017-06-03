@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block title %} Temas {% endblock %}
+
+{% block content %}
+  <div class="col-md-8 col-md-offset-2">
+    <div class="row">
+      <h1 class="text-left">Temas </h1>
+    </div>
+  </div>
+
+  <section ng-app="Polliter" ng-controller="ThemesController">
+
+    <div class="col-md-8 col-md-offset-2" ng-repeat="theme in themes">
+      <div class="row">
+        <div class="panel panel-default">
+
+          <div class="panel-body text-left">
+            <div class="col-md-8">
+              <h3 class="card-title">[[ theme.name ]]</h3>
+              <p class="card-text">[[ theme.description ]]</p>
+            </div>
+          </div>
+
+          <div class="panel-footer text-right">
+            <button ng-if="!theme.following" class="btn btn-success" ng-click="follow(theme)">Seguir</button>
+            <button ng-if="theme.following" class="btn btn-danger"  ng-click="unfollow(theme)">Deixar de seguir</button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}

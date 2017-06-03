@@ -30,7 +30,8 @@
           </div>
 
           <div class="panel-footer text-right">
-            <a href="[[ topic.reference ]]" class="card-link" target="_blank">Veja mais +</a>
+            <button ng-if="!politician.following" class="btn btn-success" ng-click="follow(politician)">Seguir</button>
+            <button ng-if="politician.following" class="btn btn-danger"  ng-click="unfollow(politician)">Deixar de seguir</button>
           </div>
 
         </div>

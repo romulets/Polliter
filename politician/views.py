@@ -18,6 +18,7 @@ def home(request):
 @permission_classes([permissions.IsAuthenticated])
 def list_politicians(request):
     politicians = Politician.objects.all()
+    map(lambda p: p.populate_following(request.user), politicians)
     serializer = PoliticianSerializer(politicians, many=True)
     return Response(serializer.data, status=status.HTTP_200_OK)
 
@@ -27,8 +28,9 @@ def list_politicians(request):
 def follow_politician(request, **kwargs):
     user = request.user
     politician = Politician.objects.get(pk=kwargs['id'])
-    userPolitician, created = UserPoliticians.objects.get_or_create(user=user, politician=politician)
-    return Response({'created': created}, status=status.HTTP_200_OK)
+    UserPoliticians.objects.get_or_create(user=user, politician=politician)
+    politician.populate_following(user)
+    return Response({'following': politician.following}, status=status.HTTP_200_OK)
 
 
 @api_view(['DELETE'])
@@ -37,9 +39,10 @@ def unfollow_politician(request, **kwargs):
     user = request.user
     politician = Politician.objects.get(pk=kwargs['id'])
     try:
-        userPolitician = UserPoliticians.objects.get(user=user, politician=politician)
-        userPolitician.delete()
-        removed = True
+        user_politician = UserPoliticians.objects.get(user=user, politician=politician)
+        user_politician.delete()
     except Exception:
-        removed = False
-    return Response({'removed': removed}, status=status.HTTP_200_OK)
+        pass
+
+    politician.populate_following(user)
+    return Response({'following': politician.following}, status=status.HTTP_200_OK)

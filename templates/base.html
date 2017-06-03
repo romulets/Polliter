@@ -28,14 +28,19 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="https://getbootstrap.com/examples/starter-template/#">Polliter</a>
+          <a class="navbar-brand" href="/home">Polliter</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="/home">Minhas Notícias</a></li>
+            <li><a href="/home">Minhas Notícias</a></li>
             <li><a href="/all">Últimas notícias</a></li>
             <li><a href="/themes">Temas</a></li>
             <li><a href="/politicians">Políticos</a></li>
+          </ul>
+
+          <ul class="nav navbar-nav navbar-right">
+            <li class="navbar-text">Seja bem vindo {{ request.user.first_name }}</li>
+            <li><a href="/logout">Sair</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>

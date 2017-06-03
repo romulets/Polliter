@@ -23,9 +23,16 @@ class Politician(models.Model):
     political_party = models.ForeignKey(PoliticalParty, on_delete=models.SET_NULL, null=True)
     about = models.TextField(max_length=1000, null=False)
     picture = models.CharField(max_length=1000, null=False)
+    following = models.BooleanField(default=False)
 
     def __str__(self):
         return u"%s (%s)" % (self.name, self.political_party.initials)
+
+    def populate_following(self, user):
+        self.following = False
+        for politicianUser in self.users.all():
+            if politicianUser.user.id == user.id:
+                self.following = True
 
 
 class UserPoliticians(models.Model):
