@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+{% load static %}
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="{% static 'styles/bootstrap.min.css' %}"/>
+
+<!-- Font Awesome -->
+<link href="{% static 'fonts/fontAwesome/css/font-awesome.min.css' %}" rel="stylesheet" />
+<!-- Font Roboto -->
+<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="{% static 'styles/bootstrap-theme.min.css' %}"/>
+<link rel="stylesheet" href="{% static 'styles/style.css' %}"/>
+
+<title>{% block title %} Polliter {% endblock %}</title>
+</head>
+<body>
+
+  {% block content %} {% endblock %}
+
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="{% static 'scripts/jquery.min.js' %}"></script>
+  <script src="{% static 'scripts/bootstrap.min.js' %}"></script>
+  <script src="{% static 'scripts/angular.min.js' %}"></script>
+  <script src="{% static 'scripts/main.js' %}"></script>
+</body>
+</html>

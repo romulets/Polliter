@@ -4,6 +4,7 @@ from __future__ import unicode_literals
 from django.db import models
 from django.contrib.auth.models import User
 
+
 # Create your models here.
 class PoliticalParty(models.Model):
     number = models.IntegerField(null=False, primary_key=True, auto_created=False)

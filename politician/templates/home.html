@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %} Políticos {% endblock %}
+
+{% block content %}
+  <div class="col-md-8 col-md-offset-2">
+    <div class="row">
+      <h1 class="text-left">Políticos</h1>
+    </div>
+  </div>
+
+  <section ng-app="Polliter" ng-controller="PoliticiansController">
+
+    <div class="col-md-8 col-md-offset-2" ng-repeat="politician in politicians">
+      <div class="row">
+        <div class="panel panel-default">
+
+          <div class="panel-body text-left">
+            <div class="col-md-4">
+              <div class="row">
+                <img class="img-responsive" src="[[ politician.picture ]]" alt="[[ politician.name ]]">
+              </div>
+            </div>
+            <div class="col-md-8">
+              <h3 class="card-title">[[ politician.name ]]</h3>
+              <p>Partido Político: [[politician.political_party.number]] - [[politician.political_party.initials]]</p>
+              <p class="card-text">[[ politician.about ]]</p>
+
+            </div>
+          </div>
+
+          <div class="panel-footer text-right">
+            <a href="[[ topic.reference ]]" class="card-link" target="_blank">Veja mais +</a>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}

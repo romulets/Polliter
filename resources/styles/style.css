@@ -1,0 +1,68 @@
+.image-tipico{
+
+  overflow: hidden;
+}
+
+p,h3,h4,a{
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+}
+p{
+  color:#000;
+}
+h3 ,h4{
+  color:#666;
+}
+.fa-thumbs-down{
+  color: #cc0000;
+}
+.fa-thumbs-up{
+  color: #33cc00;
+}
+.fa-plus-circle{
+  color: #33cc00;
+}
+.card{
+  margin: 0 auto 0 auto;
+}
+.contentbox{
+  margin: 15px 0 15px 0;
+}
+.form-control{
+  max-width: 300px;
+}
+.col-center{
+  text-align: center;
+
+}
+.alinhamento{
+  width: 40%;
+  margin: 0 auto;
+}
+.form-control{
+  margin: 0 auto;
+}
+#btn-login{
+  padding-left: 30px;
+  padding-right: 30px;
+}
+.jumbotron{
+  background-color:#EEE;
+}
+body{
+  background-color: #FFF;
+  padding-top: 50px;
+}
+
+.main {
+  padding: 40px 15px;
+  text-align: center;
+}
+
+.badge.green {
+   background-color: #2e7725;
+}
+
+.badge.blue {
+   background-color: #153e77;
+}

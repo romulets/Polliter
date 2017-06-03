@@ -1,12 +1,49 @@
-{% extends 'base.html' %}
+{% extends 'notlogged-base.html' %}
 
 {% block title %}Register{% endblock %}
 
 {% block content %}
-  <h2>Register</h2>
-  <form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Login</button>
-  </form>
+  <div class="row row-login">
+    <div class="alinhamento">
+      <div class="col-md-12 col-center">
+        <h2>Polliter</h2>
+      </div>
+      <div class="col-md-12 col-center">
+        <div class="jumbotron">
+          <form method="post">
+            {% csrf_token %}
+
+            <div class="form-group">
+              <label for="id_first_name">Primeiro Nome:</label>
+              <input type="text" name="first_name" required="" id="id_first_name" maxlength="100" class="form-control">
+            </div>
+
+            <div class="form-group">
+              <label for="id_last_name">Sobrenome:</label>
+              <input type="text" name="last_name" required="" id="id_last_name" maxlength="100" class="form-control">
+            </div>
+
+            <div class="form-group">
+              <label for="id_username">Usuário:</label>
+              <input type="text" name="username" required="" id="id_username" maxlength="100" class="form-control">
+            </div>
+
+            <div class="form-group">
+              <label for="id_email">E-mail:</label>
+              <input type="email" name="email" required="" id="id_email" maxlength="255" class="form-control">
+            </div>
+
+            <div class="form-group">
+              <label for="id_password">Senha:</label>
+              <input type="password" name="password" minlength="6" required="" id="id_password" class="form-control">
+            </div>
+
+            <button type="submit" class="btn btn-success" id="btn-login">Login</button>
+          </form>
+          <a href="/">Já possui conta? Entre por aqui!</a>
+        </div>
+      </div>
+    </div>
+  </div>
 {% endblock %}
+
